@@ -1,7 +1,11 @@
+'''
+This short script helps you to plot a precision-recall-curve and a curve for the F-Beta score depending on the amount of positive labeled inputs.
+'''
+
 import matplotlib.pyplot as plt
 
 real_labels = [1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0]
-
+beta = 0.5
 
 def precision(pred_labels):
     # tp : real_label = 1, pred_label = 1
@@ -26,8 +30,7 @@ def get_label_list(amount_of_positive_labels): #between 1 and 15
     return [1 for _ in range(amount_of_positive_labels)] + [0 for _ in range(15-amount_of_positive_labels)]
 
 def f_beta_score(p, r):
-    b = 0.5
-    return ( 1 + b**2 ) * ( (p*r) / ((b**2)*p + r) )
+    return ( 1 + beta**2 ) * ( (p*r) / ((beta**2)*p + r) )
 
 def plot_precision_recall_curve():
     # compute precision and recall for every possible classification limitor between 1 and 15
