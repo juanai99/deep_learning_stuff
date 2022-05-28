@@ -1,6 +1,6 @@
 '''
 This short script helps you to plot a precision-recall-curve
-and a curve for the F-Beta score depending on the number of positive labeled inputs
+and a curve for the F-Beta score depending on the threshold
 as required in exercise 8.3
 '''
 
@@ -27,15 +27,15 @@ def recall(pred_labels):
 
     return tp / (tp + fn)
 
-def get_label_list(number_of_positive_labels): #between 1 and 15
-    # returns a sequence of 1 following a sequence of 0. relatio depending on number_of_positive_labels
-    return [1 for _ in range(number_of_positive_labels)] + [0 for _ in range(15-number_of_positive_labels)]
+def get_label_list(threshold): #between 1 and 15
+    # returns a sequence of 1 following a sequence of 0. relatio depending on threshold
+    return [1 for _ in range(threshold)] + [0 for _ in range(15 - threshold)]
 
 def f_beta_score(p, r):
     return ( 1 + beta**2 ) * ( (p*r) / ((beta**2)*p + r) )
 
 def plot_precision_recall_curve():
-    # computes precision and recall for every possible classification limitor between 1 and 15
+    # compute precision and recall for every threshold between 1 and 15
     prec, rec = [], []
     for i in range(1, 16):
         list = get_label_list(i)
@@ -63,11 +63,11 @@ def plot_precision_recall_curve():
 
 
 def plot_f_beta_score_gen_x():
-    # plot f_beta score depending on the number of positive predicted inputs
+    # plot f_beta score depending on threshold
     x = range(1, 16)
     y = []
 
-    # compute f_beta score for every possible classification limitor between 1 and 15
+    # compute f_beta score for every threshold between 1 and 15
     for i in x:
         pred_labels = get_label_list(i)
         p = precision(pred_labels)
@@ -75,7 +75,7 @@ def plot_f_beta_score_gen_x():
         y.append(f_beta_score(p, r))
 
     # plot
-    plt.plot(x, y, 'b.')
+    plt.plot(x, y, 'b-')
     plt.ylabel("F-Beta")
     plt.xlabel("x")
     plt.show()
