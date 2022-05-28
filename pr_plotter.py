@@ -1,6 +1,6 @@
 '''
 This short script helps you to plot a precision-recall-curve
-and a curve for the F-Beta score depending on the amount of positive labeled inputs.
+and a curve for the F-Beta score depending on the number of positive labeled inputs.
 '''
 
 import matplotlib.pyplot as plt
@@ -26,9 +26,9 @@ def recall(pred_labels):
 
     return tp / (tp + fn)
 
-def get_label_list(amount_of_positive_labels): #between 1 and 15
+def get_label_list(number_of_positive_labels): #between 1 and 15
     # returns a sequence of 1 following a sequence of 0. relatio depending on amount_of_positive_labels
-    return [1 for _ in range(amount_of_positive_labels)] + [0 for _ in range(15-amount_of_positive_labels)]
+    return [1 for _ in range(number_of_positive_labels)] + [0 for _ in range(15-number_of_positive_labels)]
 
 def f_beta_score(p, r):
     return ( 1 + beta**2 ) * ( (p*r) / ((beta**2)*p + r) )
@@ -83,4 +83,4 @@ def plot_f_beta_score_gen_x():
 # de-comment to plot the desired curve
 
 #plot_precision_recall_curve()
-#plot_f_beta_score_gen_x()
+plot_f_beta_score_gen_x()
