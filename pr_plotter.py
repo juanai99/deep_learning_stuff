@@ -28,7 +28,7 @@ def recall(pred_labels):
     return tp / (tp + fn)
 
 def get_label_list(threshold): #between 1 and 15
-    # returns a sequence of 1 following a sequence of 0. relatio depending on threshold
+    # returns a sequence of 1 following a sequence of 0. relatio depends on threshold
     return [1 for _ in range(threshold)] + [0 for _ in range(15 - threshold)]
 
 def f_beta_score(p, r):
