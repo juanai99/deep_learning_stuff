@@ -1,6 +1,7 @@
 '''
 This short script helps you to plot a precision-recall-curve
-and a curve for the F-Beta score depending on the number of positive labeled inputs.
+and a curve for the F-Beta score depending on the number of positive labeled inputs
+as required in exercise 8.3
 '''
 
 import matplotlib.pyplot as plt
