@@ -42,7 +42,7 @@ def plot_precision_recall_curve():
         rec.append(recall(list))
 
     # plot the results
-    plt.plot(rec, prec, 'b.')
+    plt.plot(rec, prec, 'b-')
     '''
     change last argument of plot() method to change appearance.
     for example,
