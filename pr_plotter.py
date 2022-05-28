@@ -28,7 +28,7 @@ def recall(pred_labels):
     return tp / (tp + fn)
 
 def get_label_list(number_of_positive_labels): #between 1 and 15
-    # returns a sequence of 1 following a sequence of 0. relatio depending on amount_of_positive_labels
+    # returns a sequence of 1 following a sequence of 0. relatio depending on number_of_positive_labels
     return [1 for _ in range(number_of_positive_labels)] + [0 for _ in range(15-number_of_positive_labels)]
 
 def f_beta_score(p, r):
@@ -63,7 +63,7 @@ def plot_precision_recall_curve():
 
 
 def plot_f_beta_score_gen_x():
-    # plot f_beta score depending on the amount of positive predicted inputs
+    # plot f_beta score depending on the number of positive predicted inputs
     x = range(1, 16)
     y = []
 
