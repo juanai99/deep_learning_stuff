@@ -35,7 +35,7 @@ def f_beta_score(p, r):
     return ( 1 + beta**2 ) * ( (p*r) / ((beta**2)*p + r) )
 
 def plot_precision_recall_curve():
-    # compute precision and recall for every possible classification limitor between 1 and 15
+    # computes precision and recall for every possible classification limitor between 1 and 15
     prec, rec = [], []
     for i in range(1, 16):
         list = get_label_list(i)
