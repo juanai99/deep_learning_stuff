@@ -78,5 +78,5 @@ def plot_f_beta_score_gen_x():
 
 # de-comment to plot the desired curve
 
-plot_precision_recall_curve()
+#plot_precision_recall_curve()
 #plot_f_beta_score_gen_x()
